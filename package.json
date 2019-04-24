@@ -1,0 +1,46 @@
+{
+  "name": "test-updater",
+  "version": "0.0.1",
+  "description": "test updater",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "weder",
+  "private": true,
+  "build": {
+    "appId": "megahertz.electron-simple-updater-example",
+    "appImage": {
+      "systemIntegration": "doNotAsk"
+    },
+    "files": [
+      "!publisher.json",
+      "!README.md",
+      "!updates.json"
+    ],
+    "win": {
+      "target": "squirrel"
+    },
+    "squirrelWindows": {
+      "iconUrl": "https://raw.githubusercontent.com/megahertz/electron-simple-updater/master/example/build/icon.ico"
+    }
+  },
+  "updater": {
+    "url": "https://raw.githubusercontent.com/megahertz/electron-simple-updater/master/example/updates.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weder942/electron-simple-updater-test.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "electron-simple-updater": "^1.5.0"
+  },
+  "devDependencies": {
+    "electron": "^4.1.4",
+    "electron-builder": "^20.39.0",
+    "electron-builder-squirrel-windows": "^20.40.0"
+  }
+}
