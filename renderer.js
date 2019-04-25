@@ -1,51 +1,55 @@
 'use strict';
 
-/* eslint-env browser */
-/* eslint-disable no-restricted-globals, no-alert */
+// /* eslint-env browser */
+// /* eslint-disable no-restricted-globals, no-alert */
 
 const { remote } = require('electron');
 
 const updater = remote.require('electron-simple-updater');
 
-setText('version', updater.version);
-setText('build', updater.buildId);
+// setText('version', updater.version);
+// setText('build', updater.buildId);
+
 attachUiHandlers();
 attachUpdaterHandlers();
 
 function attachUiHandlers() {
     const btnUpdate = document.getElementById('btn-update');
-    const btnInstall = document.getElementById('btn-install');
-    const chkAutomatically = document.getElementById('automatically');
+    // const btnInstall = document.getElementById('btn-install');
+    // const chkAutomatically = document.getElementById('automatically');
 
-    btnUpdate.addEventListener('click', () => {        
-        debugger        
+    btnUpdate.addEventListener('click', () => {
         updater.checkForUpdates()
-        // console.log(aux);        
-        // document.body.classList.add('update-downloading');
     });
 
-    btnInstall.addEventListener('click', () => {
-        updater.downloadUpdate();
-    });
+    // btnInstall.addEventListener('click', () => {
+    //     updater.downloadUpdate();
+    // });
 
-    chkAutomatically.addEventListener('change', function onChange() {
-        updater.setOptions('autoDownload', this.checked);
-    });
+    // chkAutomatically.addEventListener('change', function onChange() {
+    //     updater.setOptions('autoDownload', this.checked);
+    // });
 }
 
 function attachUpdaterHandlers() {
     updater.on('update-available', onUpdateAvailable);
     updater.on('update-downloading', onUpdateDownloading);
     updater.on('update-downloaded', onUpdateDownloaded);
-    updater.setOptions('logger', {
-        info(text) { log('info', text) },
-        warn(text) { log('warn', text) },
-    });
+    updater.on('update-not-available', onUpdateNotAvaible);
+    // updater.setOptions('logger', {
+    //     info(text) { log('info', text) },
+    //     warn(text) { log('warn', text) },
+    // });
 
     function onUpdateAvailable(meta) {
-        setText('new-version', meta.version);
-        setText('description', meta.readme);
-        document.body.className = 'update-available';
+        // setText('new-version', meta.version);
+        // setText('description', meta.readme);
+        // document.body.className = 'update-available';
+        setLogInfo('Has update');
+    }
+
+    function onUpdateNotAvaible() {
+        setLogInfo('Not has update');
     }
 
     function onUpdateDownloading() {
@@ -58,16 +62,20 @@ function attachUpdaterHandlers() {
         }
     }
 
-    function log(level, text) {
-        const logMessages = document.getElementById('log-messages');
-        const p = document.createElement('p');
-        p.appendChild(document.createTextNode(`[${level}] ${text}`));
-        logMessages.appendChild(p);
-    }
+    // function log(level, text) {
+    //     const logMessages = document.getElementById('log-messages');
+    //     const p = document.createElement('p');
+    //     p.appendChild(document.createTextNode(`[${level}] ${text}`));
+    //     logMessages.appendChild(p);
+    // }
 }
 
 function setText(id, text) {
     document.getElementById(id).appendChild(
         document.createTextNode(text)
     );
+}
+
+function setLogInfo(text) {
+    document.querySelector('#infoLog').innerText = text;
 }

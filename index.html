@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Example of using electron-simple-updater</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 
-<body>    
+<!-- <body>    
     <main>
         <section class="container-check">
             <div class="right box">
@@ -39,6 +40,85 @@
 
     <script src="renderer.js"></script>
 
+</body>-->
+
+<body class="container">
+    <div class="row border border-dark m-3">
+        <div class="col text-center">
+            <div class="row border border-secondary p-0 mt-3 ml-3 mr-5">
+                <div class="col text-right">
+                    10
+                </div>
+            </div>
+            <div class="form-group row m-3">
+                <div class="input-group col p-0 m-0">
+                    <button type="button" class="btn btn-outline-dark btn-lg">/</button>
+                </div>
+                <div class="input-group col p-0 ml-5">
+                    <button type="button" class="btn btn-outline-dark btn-lg">*</button>
+                </div>
+                <div class="input-group col p-0 ml-5">
+                    <button type="button" class="btn btn-outline-dark btn-lg">-</button>
+                </div>
+                <div class="input-group col p-0 ml-5">
+                    <button type="button" class="btn btn-outline-dark btn-lg">Enter</button>
+                </div>
+            </div>
+            <div class="form-group row m-3">
+                <div class="input-group col p-0 m-0">
+                    <button type="button" class="btn btn-outline-dark btn-lg">7</button>
+                </div>
+                <div class="input-group col p-0 ml-5">
+                    <button type="button" class="btn btn-outline-dark btn-lg">8</button>
+                </div>
+                <div class="input-group col p-0 ml-5">
+                    <button type="button" class="btn btn-outline-dark btn-lg">9</button>
+                </div>
+                <div class="input-group col p-0 ml-5">
+                    <button type="button" class="btn btn-outline-dark btn-lg">+</button>
+                </div>
+            </div>
+            <div class="form-group row m-3">
+                <div class="input-group col p-0 m-0">
+                    <button type="button" class="btn btn-outline-dark btn-lg">4</button>
+                </div>
+                <div class="input-group col p-0 ml-5">
+                    <button type="button" class="btn btn-outline-dark btn-lg">5</button>
+                </div>
+                <div class="input-group col p-0 ml-5">
+                    <button type="button" class="btn btn-outline-dark btn-lg">6</button>
+                </div>
+                <div class="input-group col p-0 ml-5">
+                    <button type="button" class="btn btn-outline-dark btn-lg">.</button>
+                </div>
+            </div>
+            <div class="form-group row m-3">
+                <div class="input-group col p-0 m-0">
+                    <button type="button" class="btn btn-outline-dark btn-lg">1</button>
+                </div>
+                <div class="input-group col p-0 ml-5">
+                    <button type="button" class="btn btn-outline-dark btn-lg">2</button>
+                </div>
+                <div class="input-group col p-0 ml-5">
+                    <button type="button" class="btn btn-outline-dark btn-lg">3</button>
+                </div>
+                <div class="input-group col p-0 ml-5">
+                    <button type="button" class="btn btn-outline-dark btn-lg">0</button>
+                </div>
+            </div>            
+        </div>
+    </div>
+    <div class="row m-3">
+        <div class="col p-0 m-0">
+            <button type="button" class="btn btn-outline-dark" id="btn-update">Search for Update</button>
+        </div>
+    </div>
+    <div class="row m-3">
+        <div class="col p-0 m-0">
+            <label id="infoLog"></label>
+        </div>
+    </div>
+    <script src="renderer.js"></script>
 </body>
 
 </html>
