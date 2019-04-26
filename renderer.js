@@ -6,25 +6,24 @@
 const { remote } = require('electron');
 
 const updater = remote.require('electron-simple-updater');
-
-// setText('version', updater.version);
-// setText('build', updater.buildId);
+setCurrentVersion(updater.version);
 
 attachUiHandlers();
 attachUpdaterHandlers();
 
 function attachUiHandlers() {
     const btnUpdate = document.getElementById('btn-update');
-    // const btnInstall = document.getElementById('btn-install');
+    const btnInstall = document.getElementById('btn-install-update');
     // const chkAutomatically = document.getElementById('automatically');
 
     btnUpdate.addEventListener('click', () => {
         updater.checkForUpdates()
     });
 
-    // btnInstall.addEventListener('click', () => {
-    //     updater.downloadUpdate();
-    // });
+    btnInstall.addEventListener('click', () => {
+        console.log('baixando atualização');
+        updater.downloadUpdate();
+    });
 
     // chkAutomatically.addEventListener('change', function onChange() {
     //     updater.setOptions('autoDownload', this.checked);
@@ -35,17 +34,13 @@ function attachUpdaterHandlers() {
     updater.on('update-available', onUpdateAvailable);
     updater.on('update-downloading', onUpdateDownloading);
     updater.on('update-downloaded', onUpdateDownloaded);
-    updater.on('update-not-available', onUpdateNotAvaible);
-    // updater.setOptions('logger', {
-    //     info(text) { log('info', text) },
-    //     warn(text) { log('warn', text) },
-    // });
+    updater.on('update-not-available', onUpdateNotAvaible);    
 
-    function onUpdateAvailable(meta) {
-        // setText('new-version', meta.version);
-        // setText('description', meta.readme);
-        // document.body.className = 'update-available';
+    function onUpdateAvailable(meta) {        
         setLogInfo('Has update');
+        document.querySelector('#install-update').classList.remove('d-none');
+        document.querySelector('#new-version').classList.remove('d-none');
+        document.querySelector('#new-version').innerText = `New version: ${meta.version}`;
     }
 
     function onUpdateNotAvaible() {
@@ -60,22 +55,13 @@ function attachUpdaterHandlers() {
         if (confirm('The app has been updated. Do you like to restart it now?')) {
             updater.quitAndInstall();
         }
-    }
-
-    // function log(level, text) {
-    //     const logMessages = document.getElementById('log-messages');
-    //     const p = document.createElement('p');
-    //     p.appendChild(document.createTextNode(`[${level}] ${text}`));
-    //     logMessages.appendChild(p);
-    // }
-}
-
-function setText(id, text) {
-    document.getElementById(id).appendChild(
-        document.createTextNode(text)
-    );
+    }    
 }
 
 function setLogInfo(text) {
     document.querySelector('#infoLog').innerText = text;
+}
+
+function setCurrentVersion(version) {
+    document.querySelector('#version').innerText = `version: ${version}`
 }

@@ -1,7 +1,8 @@
 {
     "transport": {
       "module": "github",
-      "token": "",
+      "repository": "weder942/electron-simple-updater-test",
+      "token": "9c33f1af9db0c5137e4959029d6c68d1407c6f72",
       "updatesJsonPath": "updates.json"
     }
   }

@@ -1,13 +1,13 @@
 {
   "name": "test-updater",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "test updater",
   "main": "index.js",
   "scripts": {
     "start": "electron .",
     "dist": "build",
     "publish": "publish",
-    "release": "npm run dis && npm run publish",
+    "release": "npm run dist && npm run publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "weder",
@@ -30,7 +30,7 @@
     }
   },
   "updater": {
-    "url": "https://github.com/weder942/electron-simple-updater-test/releases/master/updates.json"
+    "url": "https://raw.githubusercontent.com/weder942/electron-simple-updater-test/master/updates.json"
   },
   "repository": {
     "type": "git",
