@@ -20,8 +20,7 @@ function attachUiHandlers() {
         updater.checkForUpdates()
     });
 
-    btnInstall.addEventListener('click', () => {
-        console.log('baixando atualização');
+    btnInstall.addEventListener('click', () => {        
         updater.downloadUpdate();
     });
 
@@ -36,11 +35,12 @@ function attachUpdaterHandlers() {
     updater.on('update-downloaded', onUpdateDownloaded);
     updater.on('update-not-available', onUpdateNotAvaible);    
 
-    function onUpdateAvailable(meta) {        
+    function onUpdateAvailable(meta) { 
         setLogInfo('Has update');
         document.querySelector('#install-update').classList.remove('d-none');
         document.querySelector('#new-version').classList.remove('d-none');
         document.querySelector('#new-version').innerText = `New version: ${meta.version}`;
+        btnUpdate.parentElement.parentElement.classList.add('d-none');
     }
 
     function onUpdateNotAvaible() {
@@ -48,6 +48,7 @@ function attachUpdaterHandlers() {
     }
 
     function onUpdateDownloading() {
+        console.log('Baixando update');        
         document.body.classList.add('update-downloading');
     }
 

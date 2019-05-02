@@ -1,8 +1,7 @@
 {
     "transport": {
-      "module": "github",
-      "repository": "weder942/electron-simple-updater-test",
-      "token": "9c33f1af9db0c5137e4959029d6c68d1407c6f72",
-      "updatesJsonPath": "updates.json"
+      "module": "s3",
+      "accessKeyId": "AKIAR7CPGUCTAWYEVFNT",
+      "secretAccessKey": "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"
     }
   }
