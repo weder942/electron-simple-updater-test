@@ -1,7 +1,4 @@
 {
-    "transport": {
-      "module": "s3",
-      "accessKeyId": "AKIAR7CPGUCTAWYEVFNT",
-      "secretAccessKey": "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"
+    "transport": {      
     }
   }
